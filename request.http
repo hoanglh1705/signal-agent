@@ -1,0 +1,5 @@
+curl --location 'http://127.0.0.1:8010/v1/signals/generate' \
+--header 'Content-Type: application/json' \
+--data '{
+"symbol": "HDB"
+}'

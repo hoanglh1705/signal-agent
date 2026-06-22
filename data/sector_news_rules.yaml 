@@ -1,0 +1,13 @@
+banking:
+  queries:
+    - "lãi suất ngân hàng Việt Nam"
+    - "tỷ giá USD VND"
+    - "tăng trưởng tín dụng"
+    - "nợ xấu ngân hàng"
+
+oil_gas:
+  queries:
+    - "giá dầu Brent"
+    - "OPEC"
+    - "Middle East conflict oil"
+    - "Iran US tension oil price"
