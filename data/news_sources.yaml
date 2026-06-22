@@ -1,0 +1,31 @@
+# Nguồn tin cho ingestion pipeline.
+# type:
+#   - googlenews : url là RSS search của Google News (đã encode query)
+#   - rss        : RSS feed thường của báo VN
+# trust: độ tin cậy nguồn (0-1), dùng tham khảo khi chấm điểm.
+
+sources:
+  - name: "Google News VN - Chứng khoán"
+    type: "googlenews"
+    url: "https://news.google.com/rss/search?q=Ch%E1%BB%A9ng+kho%C3%A1n&hl=vi&gl=VN&ceid=VN:vi"
+    trust: 1.0
+
+  - name: "VnExpress - Kinh doanh"
+    type: "rss"
+    url: "https://vnexpress.net/rss/kinh-doanh.rss"
+    trust: 0.95
+
+  - name: "CafeF - Tài chính chứng khoán"
+    type: "rss"
+    url: "https://cafef.vn/tai-chinh-chung-khoan.rss"
+    trust: 0.8
+
+  - name: "VnEconomy - Tài chính"
+    type: "rss"
+    url: "https://vneconomy.vn/tai-chinh.rss"
+    trust: 0.9
+
+  - name: "ThanhNien - Tài chính kinh doanh"
+    type: "rss"
+    url: "https://thanhnien.vn/rss/tai-chinh-kinh-doanh.rss"
+    trust: 0.85

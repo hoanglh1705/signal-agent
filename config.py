@@ -1,12 +1,30 @@
 import os
 
-from pydantic_settings import  BaseSettings
+from pydantic_settings import BaseSettings
+
 
 class Settings(BaseSettings):
     app_name: str = "signal-agent"
     openapi_api_key: str
     llm_model: str
     request_timeout: int = 20
+
+    # Postgres dùng chung với signal-engine (Go) — đọc/ghi bảng articles, article_scores.
+    postgres_dsn: str = "postgresql://tele-money:password123@localhost:5533/tele-money"
+
+    # Ingestion
+    ingest_lookback_days: int = 7
+    ingest_max_concurrency: int = 5
+    ingest_max_body_kb: int = 1024
+    news_default_limit: int = 8
+
+    # Groq — dùng để chấm điểm bài tin (tóm tắt, confidence, ngành, impact theo mã)
+    groq_api_key: str | None = None
+    groq_model: str = "llama-3.3-70b-versatile"
+
+    # Google News: link là trang redirect -> dùng headless browser (Playwright)
+    # mở link, đợi nhảy về bài gốc rồi bóc nội dung.
+    gnews_nav_timeout_sec: int = 30
 
     # Vietstock
     vietstock_base_url: str = "https://finance.vietstock.vn/data/gettradingresult"

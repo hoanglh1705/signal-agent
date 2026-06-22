@@ -24,7 +24,11 @@ async def get_price_history(symbol: str, days: int = 30) -> list[dict]:
         )
         return [_to_dict(p) for p in prices]
     except Exception:
-        logger.warning("Vietstock lookup failed for %s, falling back to mock", symbol, exc_info=True)
+        logger.warning(
+            "Vietstock lookup failed for %s, falling back to mock",
+            symbol,
+            exc_info=True,
+        )
         return _mock(symbol, days)
 
 
